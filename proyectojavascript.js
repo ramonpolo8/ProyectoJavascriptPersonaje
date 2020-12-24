@@ -22,25 +22,35 @@ function muestraEstadoJugador() {
     }
 }
 
+function usarItem() {
+    vida += 20;
+    console.log("Te has curado con 20 puntos de vida, en total tienes: " + vida);
+}
+
 function juegaTurno() {
     var jugadaCPU = Math.round(Math.random() * 3);
 
-    console.log(jugadaCPU);
-    if (jugadaCPU == atacar) {
-        vida -= 10;
-        console.log("Te han atacado.")
+    if (vida > 0) {
+        console.log(jugadaCPU);
+        if (jugadaCPU == atacar) {
+            vida -= 10;
+            console.log("Te han atacado.")
 
-    } else if (jugadaCPU == quemar) {
-        quemado = true;
-        console.log("Te han quemado.")
+        } else if (jugadaCPU == quemar) {
+            quemado = true;
+            console.log("Te han quemado.")
 
-    } else if (jugadaCPU == envenenar) {
-        envenenado = true;
-        console.log("Te han envenenado.")
+        } else if (jugadaCPU == envenenar) {
+            envenenado = true;
+            console.log("Te han envenenado.")
 
-    } else if (jugadaCPU == fallar) {
-        console.log("Han fallado. Tienes suerte!!!")
+        } else if (jugadaCPU == fallar) {
+            console.log("Han fallado. Tienes suerte!!!")
+        }
+
+        muestraEstadoJugador();
     }
-
-    muestraEstadoJugador();
+    else {
+        console.log("Estas muerto");
+    }
 }
