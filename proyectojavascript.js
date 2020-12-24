@@ -13,14 +13,13 @@ var envenenar = 2;
 var fallar = 3;
 
 function muestraEstadoJugador() {
+    console.log("vida: " + vida);
     if (envenenado == true) {
         console.log("Envenenado.");
     }
-
-    if (quemado == true){
+    if (quemado == true) {
         console.log("Quemado.");
-    } 
-
+    }
 }
 
 function juegaTurno() {
@@ -28,6 +27,7 @@ function juegaTurno() {
 
     console.log(jugadaCPU);
     if (jugadaCPU == atacar) {
+        vida -= 10;
         console.log("Te han atacado.")
 
     } else if (jugadaCPU == quemar) {
@@ -41,6 +41,6 @@ function juegaTurno() {
     } else if (jugadaCPU == fallar) {
         console.log("Han fallado. Tienes suerte!!!")
     }
-    
-muestraEstadoJugador();
+
+    muestraEstadoJugador();
 }
