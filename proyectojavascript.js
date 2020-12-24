@@ -1,5 +1,5 @@
 var turno = 1;
-var vida = 100;
+var vida = 110;
 
 //Estados jugadores
 var vivo = true;
