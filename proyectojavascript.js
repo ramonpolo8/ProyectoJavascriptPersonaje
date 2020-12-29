@@ -12,25 +12,45 @@ var quemar = 1;
 var envenenar = 2;
 var fallar = 3;
 
-function muestraEstadoJugador() {
-    console.log("vida: " + vida);
-    if (envenenado == true) {
-        console.log("Envenenado.");
+var pocion = 0;
+var resurreccion = 1;
+var pocionQuemadura = 2;
+
+function usarItem(objeto) {
+    if (objeto == pocion) {
+        vida += 50;
     }
-    if (quemado == true) {
-        console.log("Quemado.");
+    if (objeto == resurreccion) {
+        vivo = true;
+    }
+    if (objeto == pocionQuemadura) {
+        quemado = false;
+    }
+
+}
+
+
+function muestraEstadoJugador() {
+    if (vivo == true) {
+        console.log("vida: " + vida);
+        if (envenenado == true)
+            console.log("Envenenado.");
+
+        if (quemado == true)
+            console.log("Quemado.");
+    }
+    else {
+        console.log("Estas Muerto");
     }
 }
 
-function usarItem() {
-    vida += 20;
-    console.log("Te has curado con 20 puntos de vida, en total tienes: " + vida);
-}
 
 function juegaTurno() {
     var jugadaCPU = Math.round(Math.random() * 3);
-
-    if (vida > 0) {
+    if (vida <= 0) {
+        vivo = false;
+    }
+    if (vivo == true) {
         console.log(jugadaCPU);
         if (jugadaCPU == atacar) {
             vida -= 10;
